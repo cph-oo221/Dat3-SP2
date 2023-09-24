@@ -11,7 +11,7 @@
 
 
 
-<div style="text-align: center">
+<div align="center">
     <h1>Dat3-SP2</h1>
     <h2>Weather Data Enrichment and Storage</h2>
 </div>
