@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CurrentDataDTO
 {
-    String temperature;
+    Integer temperature;
     String skyText;
-    String humidity;
+    Integer humidity;
     String windText;
 
     @Override

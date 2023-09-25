@@ -1,9 +1,8 @@
 package dat;
 
 import dat.data.dto.WeatherWebscraperDTO;
+import dat.data_fetch.WeatherWebscraper;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherWebscraperTest
 {

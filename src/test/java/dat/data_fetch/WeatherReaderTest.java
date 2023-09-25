@@ -1,4 +1,4 @@
-package dat.weather_api;
+package dat.data_fetch;
 
 import dat.data.dto.weather.CurrentDataDTO;
 import dat.data.dto.weather.WeatherReaderDTO;

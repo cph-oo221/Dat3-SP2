@@ -1,4 +1,4 @@
-package dat;
+package dat.data_fetch;
 
 import dat.data.dto.WeatherWebscraperDTO;
 import org.jsoup.Jsoup;

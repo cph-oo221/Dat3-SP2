@@ -1,4 +1,4 @@
-package dat.weather_api;
+package dat.data_fetch;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
