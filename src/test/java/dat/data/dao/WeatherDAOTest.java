@@ -1,22 +1,18 @@
 package dat.data.dao;
 
 import dat.WeatherFetcher;
-import dat.data.dto.WeatherWebscraperDTO;
-import dat.data.dto.weather.WeatherReaderDTO;
-import dat.data_fetch.WeatherReader;
-import dat.data_fetch.WeatherWebscraper;
 import dat.model.City;
 import dat.model.Weather;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.concurrent.Callable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherDAOTest
 {
-        WeatherDAO weatherDAO = WeatherDAO.getInstance();
+        private WeatherDAO weatherDAO = WeatherDAO.getInstance();
+        private CityDAO cityDAO = CityDAO.getInstance();
 
         @Test
         void getInstance()
@@ -26,16 +22,15 @@ class WeatherDAOTest
             assertEquals(weatherDAO, actual);
         }
 
+
         @Test
         void create() throws Exception
         {
             City city = new City("København", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2618425/Danmark/Region%20Hovedstaden/K%C3%B8benhavn/K%C3%B8benhavn");
 
-            CityDAO cityDAO = CityDAO.getInstance();
-
             cityDAO.create(city);
 
-            Callable<Weather> wf = new WeatherFetcher(city);
+            Callable<Weather> wf = new WeatherFetcher(cityDAO.readByName("København"));
 
             Weather w = wf.call();
 
