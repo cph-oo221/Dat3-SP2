@@ -42,8 +42,10 @@ xxx
 ### EER Diagram:
 ![](documentation/EER_Diagram.png)
 
-### API(s):
-API: https://vejr.eu/pages/api-documentation
 
-### Scraping:
-Hjemmeside: https://www.yr.no/nb
+### Links:
+API:
+- We have used the API from: https://vejr.eu/pages/api-documentation - to enrich our data with extra information.
+
+Web scraping:
+- We have used web scraping to get the weather forecast from https://www.yr.no/nb
