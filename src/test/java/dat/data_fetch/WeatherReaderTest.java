@@ -32,9 +32,9 @@ class WeatherReaderTest
         WeatherReaderDTO wrd = WeatherReaderDTO.builder()
                 .LocationName("København, Region Hovedstaden")
                 .CurrentData(CurrentDataDTO.builder()
-                        .temperature("17")
+                        .temperature(17)
                         .skyText("Skyet")
-                        .humidity("78")
+                        .humidity(78)
                         .windText("19 m/s Syd")
                         .build())
                 .build();
