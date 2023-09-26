@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 class WeatherFetcherTest
 {
+
     @Test
     void getWeatherEntity()
     {
@@ -41,20 +43,23 @@ class WeatherFetcherTest
     {
         ExecutorService executorService = ExecutorServiceConfig.getExecutorService();
         List<City> cities = new ArrayList<>();
-        List<Future<Weather>> futures = new ArrayList<>();
+        List<Future> futures = new ArrayList<>();
 
         cities.add(new City("Aalborg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624886/Danmark/Nordjylland/Aalborg/Aalborg"));
         cities.add(new City("Aarhus", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624652/Danmark/Midtjylland/Aarhus/Aarhus"));
         cities.add(new City("Odense", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2615876/Danmark/Syddanmark/Odense/Odense"));
         cities.add(new City("Esbjerg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2622447/Danmark/Syddanmark/Esbjerg/Esbjerg"));
 
-        cities.forEach(c -> futures.add(executorService.submit(new WeatherFetcher(c))));
+        cities.forEach(c ->
+        {
+            futures.add(executorService.submit(new WeatherFetcher(c)));
+        });
 
         futures.forEach(f ->
         {
             try
             {
-                System.out.println(f.get().toString() + " " + f.get().getCity().getName());
+                System.out.println(f.get().toString());
             }
             catch (Exception e)
             {
