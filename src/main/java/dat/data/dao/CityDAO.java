@@ -4,20 +4,22 @@ import dat.config.HibernateConfig;
 import dat.model.City;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class CityDAO implements IDao<City>
 {
-    EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
+    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
-    private static CityDAO cityDAO = null;
+    private static CityDAO instance;
 
     public CityDAO getInstance()
     {
-        if (cityDAO == null)
+        if (instance == null)
         {
-            cityDAO = new CityDAO();
+            instance = new CityDAO();
         }
-        return cityDAO;
+        return instance;
     }
 
     @Override
