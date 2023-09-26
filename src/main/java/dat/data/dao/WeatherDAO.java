@@ -91,11 +91,31 @@ public class WeatherDAO implements IDao<Weather>
         }
     }
 
+    public Double getAvgHumidByCity(String city)
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(humid) FROM Weather WHERE city.name = :city", Double.class)
+                    .setParameter("city", city)
+                    .getSingleResult();
+        }
+    }
+
     public Double getAvgPrecip()
     {
         try(EntityManager em = emf.createEntityManager())
         {
             return em.createQuery("SELECT AVG(precipitation) FROM Weather", Double.class)
+                    .getSingleResult();
+        }
+    }
+
+    public Double getAvgPrecipByCity(String city)
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(precipitation) FROM Weather WHERE city.name = :city", Double.class)
+                    .setParameter("city", city)
                     .getSingleResult();
         }
     }
@@ -109,6 +129,13 @@ public class WeatherDAO implements IDao<Weather>
         }
     }
 
-
-
+    public Double getAvgWindByCity(String city)
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(wind) FROM Weather WHERE city.name = :city", Double.class)
+                    .setParameter("city", city)
+                    .getSingleResult();
+        }
+    }
 }
