@@ -1,23 +1,25 @@
 package dat.data.dao;
 
 import dat.config.HibernateConfig;
+import dat.model.City;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
-public class WeatherDAO implements IDao
+public class CityDAO implements IDao
 {
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "create");
 
-    private static WeatherDAO weatherDAO = null;
+    private static CityDAO cityDAO = null;
 
-    public WeatherDAO getInstance()
+    public CityDAO getInstance()
     {
-        if (weatherDAO == null)
+        if (cityDAO == null)
         {
-            weatherDAO = new WeatherDAO();
+            cityDAO = new CityDAO();
         }
-        return weatherDAO;
+        return cityDAO;
     }
+
     @Override
     public void create(Object o)
     {
@@ -30,12 +32,12 @@ public class WeatherDAO implements IDao
     }
 
     @Override
-    public WeatherDAO read(int id)
+    public City read(int id)
     {
-        WeatherDAO foundObject;
+        City foundObject;
         try(EntityManager em = emf.createEntityManager())
         {
-            foundObject = em.find(WeatherDAO.class, id);
+            foundObject = em.find(City.class, id);
         }
         return foundObject;
     }
@@ -50,6 +52,7 @@ public class WeatherDAO implements IDao
             em.getTransaction().commit();
         }
     }
+
     @Override
     public void delete(Object o)
     {
