@@ -23,7 +23,7 @@ public class Weather
     LocalDateTime time;
     Integer temperature;
     String wind;
-    String sky_text;
+    String skyText;
     Integer humid;
     Integer precipitation;
 
@@ -35,7 +35,7 @@ public class Weather
         this.time = LocalDateTime.now();
         this.temperature = wwdto.getTemperature();
         this.wind = wwdto.getWind();
-        this.sky_text = wrdto.getCurrentData().getSkyText();
+        this.skyText = wrdto.getCurrentData().getSkyText();
         this.humid = wrdto.getCurrentData().getHumidity();
         this.precipitation = wwdto.getPrecipitation();
     }
