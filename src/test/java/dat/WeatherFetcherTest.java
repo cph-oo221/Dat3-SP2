@@ -13,7 +13,6 @@ import java.util.concurrent.Future;
 
 class WeatherFetcherTest
 {
-
     @Test
     void getWeatherEntity()
     {
