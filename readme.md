@@ -37,3 +37,13 @@
 
 ### Business model:
 xxx
+
+
+### EER Diagram:
+xxx
+
+### API(s):
+API: https://vejr.eu/pages/api-documentation
+
+### Scraping:
+Hjemmeside: https://www.yr.no/nb
