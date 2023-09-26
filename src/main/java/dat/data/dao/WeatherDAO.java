@@ -61,4 +61,54 @@ public class WeatherDAO implements IDao<Weather>
             em.getTransaction().commit();
         }
     }
+
+    public Double getAvgTemp()
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(temperature) FROM Weather", Double.class)
+                    .getSingleResult();
+        }
+    }
+
+    public Double getAvgTempByCity(String city)
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(temperature) FROM Weather WHERE city.name = :city", Double.class)
+                    .setParameter("city", city)
+                    .getSingleResult();
+        }
+    }
+
+
+    public Double getAvgHumid()
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(humid) FROM Weather", Double.class)
+                    .getSingleResult();
+        }
+    }
+
+    public Double getAvgPrecip()
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(precipitation) FROM Weather", Double.class)
+                    .getSingleResult();
+        }
+    }
+
+    public Double getAvgWind()
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            return em.createQuery("SELECT AVG(wind) FROM Weather", Double.class)
+                    .getSingleResult();
+        }
+    }
+
+
+
 }
