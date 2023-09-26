@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class WeatherDAO implements IDao<Weather>
+public class WeatherDAO implements IDAO<Weather>
 {
     private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
