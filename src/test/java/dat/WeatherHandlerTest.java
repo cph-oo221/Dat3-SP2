@@ -1,5 +1,6 @@
 package dat;
 
+import dat.model.City;
 import dat.model.Weather;
 import org.junit.jupiter.api.Test;
 
@@ -12,11 +13,12 @@ class WeatherHandlerTest
     @Test
     void getWeatherEntity()
     {
-        WeatherHandler weatherHandler = new WeatherHandler();
+        City city = new City("København", "Danmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2618425/Danmark/Region%20Hovedstaden/K%C3%B8benhavn/K%C3%B8benhavn");
+        WeatherHandler weatherHandler = new WeatherHandler(city);
         try
         {
             Weather w = weatherHandler.getWeatherEntity();
-            System.out.println(w.getTemperature());
+            System.out.println(w.toString());
         }
         catch (IOException e)
         {
