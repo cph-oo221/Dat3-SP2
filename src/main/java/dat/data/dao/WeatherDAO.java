@@ -11,7 +11,7 @@ public class WeatherDAO implements IDao<Weather>
 
     private static WeatherDAO weatherDAO = null;
 
-    public WeatherDAO getInstance()
+    public static WeatherDAO getInstance()
     {
         if (weatherDAO == null)
         {

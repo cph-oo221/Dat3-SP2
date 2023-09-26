@@ -4,6 +4,7 @@ import dat.config.HibernateConfig;
 import dat.model.City;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.PrePersist;
 
 public class CityDAO implements IDao<City>
 {
@@ -11,24 +12,15 @@ public class CityDAO implements IDao<City>
 
     private static CityDAO cityDAO = null;
 
-    public CityDAO getInstance()
+
+
+    public static CityDAO getInstance()
     {
         if (cityDAO == null)
         {
             cityDAO = new CityDAO();
         }
         return cityDAO;
-    }
-
-    @Override
-    public void create(City c)
-    {
-        try (EntityManager em = emf.createEntityManager())
-        {
-            em.getTransaction().begin();
-            em.persist(c);
-            em.getTransaction().commit();
-        }
     }
 
     @Override
@@ -61,6 +53,24 @@ public class CityDAO implements IDao<City>
             em.getTransaction().begin();
             em.remove(c);
             em.getTransaction().commit();
+        }
+    }
+
+    public void create(City c)
+    {
+        try(EntityManager em = emf.createEntityManager())
+        {
+            if (read(c.getId()) != null)
+            {
+                em.getTransaction().begin();
+                update(c);
+                em.getTransaction().commit();
+            } else
+            {
+                em.getTransaction().begin();
+                create(c);
+                em.getTransaction().commit();
+            }
         }
     }
 }
