@@ -34,6 +34,18 @@ public class CityDAO implements IDao<City>
         return foundObject;
     }
 
+    public City readByName(String name)
+    {
+        City foundObject;
+        try(EntityManager em = emf.createEntityManager())
+        {
+            foundObject = em.createQuery("SELECT c FROM City c WHERE c.name = :name", City.class)
+                    .setParameter("name", name)
+                    .getSingleResult();
+        }
+        return foundObject;
+    }
+
     @Override
     public void update(City c)
     {
@@ -60,15 +72,15 @@ public class CityDAO implements IDao<City>
     {
         try(EntityManager em = emf.createEntityManager())
         {
-            if (read(c.getId()) != null)
+            if (readByName(c.getName()) != null)
             {
                 em.getTransaction().begin();
-                update(c);
+                em.merge(c);
                 em.getTransaction().commit();
             } else
             {
                 em.getTransaction().begin();
-                create(c);
+                em.persist(c);
                 em.getTransaction().commit();
             }
         }
