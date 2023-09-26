@@ -1,6 +1,6 @@
 package dat.data.dao;
 
-public interface IDao<T>
+public interface IDAO<T>
 {
     public void create(T t);
     public T read(int id);
