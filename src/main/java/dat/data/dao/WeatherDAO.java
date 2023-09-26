@@ -4,21 +4,23 @@ import dat.config.HibernateConfig;
 import dat.model.Weather;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-
+import lombok.NoArgsConstructor;
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class WeatherDAO implements IDao<Weather>
 {
-    EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
+    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
-    private static WeatherDAO weatherDAO = null;
+    private static WeatherDAO instance;
 
-    public WeatherDAO getInstance()
+    public static WeatherDAO getInstance()
     {
-        if (weatherDAO == null)
+        if (instance == null)
         {
-            weatherDAO = new WeatherDAO();
+            instance = new WeatherDAO();
         }
-        return weatherDAO;
+        return instance;
     }
+
     @Override
     public void create(Weather w)
     {
