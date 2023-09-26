@@ -1,6 +1,5 @@
 package dat.data.dto.weather;
 
-import dat.data.dto.weather.CurrentDataDTO;
 import lombok.*;
 
 @Getter

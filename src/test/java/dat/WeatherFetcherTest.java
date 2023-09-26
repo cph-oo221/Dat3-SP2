@@ -44,15 +44,11 @@ class WeatherFetcherTest
         ExecutorService executorService = ExecutorServiceConfig.getExecutorService();
         List<City> cities = new ArrayList<>();
         List<Future> futures = new ArrayList<>();
-        City city = new City("Aalborg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624886/Danmark/Nordjylland/Aalborg/Aalborg");
-        City city2 = new City("Aarhus", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624652/Danmark/Midtjylland/Aarhus/Aarhus");
-        City city3 = new City("Odense", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2615876/Danmark/Syddanmark/Odense/Odense");
-        City city4 = new City("Esbjerg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2622447/Danmark/Syddanmark/Esbjerg/Esbjerg");
 
-        cities.add(city);
-        cities.add(city2);
-        cities.add(city3);
-        cities.add(city4);
+        cities.add(new City("Aalborg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624886/Danmark/Nordjylland/Aalborg/Aalborg"));
+        cities.add(new City("Aarhus", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2624652/Danmark/Midtjylland/Aarhus/Aarhus"));
+        cities.add(new City("Odense", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2615876/Danmark/Syddanmark/Odense/Odense"));
+        cities.add(new City("Esbjerg", "Denmark", "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-2622447/Danmark/Syddanmark/Esbjerg/Esbjerg"));
 
         cities.forEach(c ->
         {

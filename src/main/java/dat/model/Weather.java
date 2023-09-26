@@ -20,17 +20,17 @@ public class Weather
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
 
-    LocalDateTime time;
-    Integer temperature;
-    String wind;
-    String skyText;
-    Integer humid;
-    Integer precipitation;
+    private LocalDateTime time;
+    private Integer temperature;
+    private String wind;
+    private String skyText;
+    private Integer humid;
+    private Integer precipitation;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    City city;
+    private City city;
 
     public Weather(WeatherReaderDTO wrdto, WeatherWebscraperDTO wwdto)
     {

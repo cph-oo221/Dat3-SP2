@@ -11,8 +11,8 @@ import java.util.concurrent.Callable;
 public class WeatherFetcher implements Callable<Weather>
 {
 
-    String ApiLocation;
-    City city;
+    private String ApiLocation;
+    private City city;
 
     public WeatherFetcher(City city)
     {
