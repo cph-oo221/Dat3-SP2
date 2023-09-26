@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class WeatherDAOGetAvgTest
 {
 
-    // TODO - Chagne values in methods to reflect actual values + make beforeAll data
+    // TODO - Change values in methods to reflect actual values + make beforeAll data
 
     private WeatherDAO weatherDAO;
     private String cophenhagen;
