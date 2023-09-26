@@ -1,10 +1,11 @@
 package dat.data.dao;
 
 import dat.config.HibernateConfig;
+import dat.model.Weather;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
-public class WeatherDAO implements IDao
+public class WeatherDAO implements IDao<Weather>
 {
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
@@ -19,44 +20,44 @@ public class WeatherDAO implements IDao
         return weatherDAO;
     }
     @Override
-    public void create(Object o)
+    public void create(Weather w)
     {
         try (EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.persist(o);
+            em.persist(w);
             em.getTransaction().commit();
         }
     }
 
     @Override
-    public WeatherDAO read(int id)
+    public Weather read(int id)
     {
-        WeatherDAO foundObject;
+        Weather foundObject;
         try(EntityManager em = emf.createEntityManager())
         {
-            foundObject = em.find(WeatherDAO.class, id);
+            foundObject = em.find(Weather.class, id);
         }
         return foundObject;
     }
 
     @Override
-    public void update(Object o)
+    public void update(Weather w)
     {
         try(EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.merge(o);
+            em.merge(w);
             em.getTransaction().commit();
         }
     }
     @Override
-    public void delete(Object o)
+    public void delete(Weather w)
     {
         try(EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.remove(o);
+            em.remove(w);
             em.getTransaction().commit();
         }
     }

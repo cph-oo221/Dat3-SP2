@@ -5,7 +5,7 @@ import dat.model.City;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
-public class CityDAO implements IDao
+public class CityDAO implements IDao<City>
 {
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
@@ -21,12 +21,12 @@ public class CityDAO implements IDao
     }
 
     @Override
-    public void create(Object o)
+    public void create(City c)
     {
         try (EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.persist(o);
+            em.persist(c);
             em.getTransaction().commit();
         }
     }
@@ -43,23 +43,23 @@ public class CityDAO implements IDao
     }
 
     @Override
-    public void update(Object o)
+    public void update(City c)
     {
         try(EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.merge(o);
+            em.merge(c);
             em.getTransaction().commit();
         }
     }
 
     @Override
-    public void delete(Object o)
+    public void delete(City c)
     {
         try(EntityManager em = emf.createEntityManager())
         {
             em.getTransaction().begin();
-            em.remove(o);
+            em.remove(c);
             em.getTransaction().commit();
         }
     }
