@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class CityDAO implements IDao
 {
-    EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "create");
+    EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig("weather", "update");
 
     private static CityDAO cityDAO = null;
 
