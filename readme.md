@@ -40,7 +40,7 @@ xxx
 
 
 ### EER Diagram:
-xxx
+![](documentation/EER_Diagram.png)
 
 ### API(s):
 API: https://vejr.eu/pages/api-documentation
