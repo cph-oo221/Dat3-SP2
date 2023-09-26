@@ -17,13 +17,13 @@ public class City
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String name;
-    String yrUrl;
-    String country;
+    private int id;
+    private String name;
+    private String yrUrl;
+    private String country;
 
     @OneToMany(mappedBy = "city",fetch = FetchType.EAGER)
-    List<Weather> weatherData = new ArrayList<>();
+    private List<Weather> weatherData = new ArrayList<>();
 
     public City(String name, String country, String yrUrl)
     {

@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherReaderTest
 {
-
     private WeatherReader weatherReader;
+
     @BeforeEach
     void setUp()
     {
