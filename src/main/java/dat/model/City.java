@@ -22,7 +22,7 @@ public class City
     private String yrUrl;
     private String country;
 
-    @OneToMany(mappedBy = "city",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     private List<Weather> weatherData = new ArrayList<>();
 
     public City(String name, String country, String yrUrl)
