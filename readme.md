@@ -46,5 +46,8 @@ API:
 Web scraping:
 - We have used web scraping to get the weather forecast from https://www.yr.no/nb
 
+WeatherWeb-SP2:
+https://github.com/kotteletfisk/WeatherWeb-SP2
+
 ### Conclusion:
 We ended up with two applications: one (Data-SP2) that runs on a droplet and collects data with web scraping and APIs, and another one, "WeatherWeb-SP2," that has the business logic. This one uses Tomcat and Java servlets to serve the data to the frontend, where we display all the weather data. We did not have time to make it a single application.
