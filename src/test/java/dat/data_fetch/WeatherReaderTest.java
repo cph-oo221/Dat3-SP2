@@ -1,7 +1,7 @@
 package dat.data_fetch;
 
-import dat.data.dto.weather.CurrentDataDTO;
-import dat.data.dto.weather.WeatherReaderDTO;
+import dat.data.dto.CurrentDataDTO;
+import dat.data.dto.WeatherReaderDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

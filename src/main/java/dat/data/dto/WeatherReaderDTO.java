@@ -1,4 +1,4 @@
-package dat.data.dto.weather;
+package dat.data.dto;
 
 import lombok.*;
 
