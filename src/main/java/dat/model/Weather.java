@@ -1,7 +1,7 @@
 package dat.model;
 
 import dat.data.dto.WeatherWebscraperDTO;
-import dat.data.dto.weather.WeatherReaderDTO;
+import dat.data.dto.WeatherReaderDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
