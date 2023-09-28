@@ -126,7 +126,7 @@ public class WeatherDAO implements IDAO<Weather>
     {
         try(EntityManager em = emf.createEntityManager())
         {
-            return em.createQuery("SELECT AVG(wind) FROM Weather", Double.class)
+            return em.createQuery("SELECT AVG(CAST(wind AS double)) FROM Weather", Double.class)
                     .getSingleResult();
         }
     }
@@ -135,7 +135,7 @@ public class WeatherDAO implements IDAO<Weather>
     {
         try(EntityManager em = emf.createEntityManager())
         {
-            return em.createQuery("SELECT AVG(wind) FROM Weather WHERE city.name = :city", Double.class)
+            return em.createQuery("SELECT AVG(CAST(wind AS double)) FROM Weather WHERE city.name = :city", Double.class)
                     .setParameter("city", city)
                     .getSingleResult();
         }
