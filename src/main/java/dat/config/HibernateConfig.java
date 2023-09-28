@@ -1,5 +1,7 @@
 package dat.config;
 
+import dat.model.City;
+import dat.model.Weather;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -30,7 +32,7 @@ public class HibernateConfig
             String connctionURL = String.format("jdbc:postgresql://localhost:5432/"+ dbName +"?currentSchema=public");
             props.put("hibernate.connection.url", connctionURL);
             props.put("hibernate.connection.username", "postgres");
-            props.put("hibernate.connection.password", "postgres");
+            props.put("hibernate.connection.password", "otyWV3pFtZ78eEUgVkOr");
             props.put("hibernate.show_sql", "true"); // show sql in console
             props.put("hibernate.format_sql", "true"); // format sql in console
             props.put("hibernate.use_sql_comments", "true"); // show sql comments in console
@@ -66,7 +68,9 @@ public class HibernateConfig
 
     private static void getAnnotationConfiguration(Configuration configuration)
     {
-        List<Class<?>> classes = getClassesByPackage("dat.model");
+        configuration.addAnnotatedClass(City.class);
+        configuration.addAnnotatedClass(Weather.class);
+        /*List<Class<?>> classes = getClassesByPackage("dat.model");
 
         for (Class<?> aClass : classes)
         {
@@ -74,7 +78,7 @@ public class HibernateConfig
             {
                 configuration.addAnnotatedClass(aClass);
             }
-        }
+        }*/
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig(String dbName, String writeMethod)
