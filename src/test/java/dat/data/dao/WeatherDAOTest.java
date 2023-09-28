@@ -47,6 +47,9 @@ class WeatherDAOTest
         @Test
         void read()
         {
+            Weather weather = weatherDAO.read(1);
+            System.out.println(weather.toString());
+            assertNotNull(weather);
         }
 
         @Test
