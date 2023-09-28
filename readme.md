@@ -6,6 +6,7 @@
 [hibernate]: https://img.shields.io/badge/hibernate--core-v6.2.4.Final-blue
 [lombok]: https://img.shields.io/badge/lombok-v1.18.28-blue
 [junit-jupiter]: https://img.shields.io/badge/junit-v5.9.1-blue
+[tomcat9]: https://img.shields.io/badge/tomcat-v9.0.54-blue
 
 
 
@@ -35,5 +36,11 @@
 * Oskar Daniel Olsen - Github: **[cph-oo221](https://github.com/cph-oo221)**
 
 
-### Business model:
-xxx
+### Project description:
+An application that continuously collects data from yr.no and enriches it with a weather api.
+An overview of the data is then presented in a web application, which can be found here:
+**[Weather Data Enrichment and Analysis](http://64.226.113.14:8080/WeatherWeb-SP2-1.0-SNAPSHOT/)**
+
+### Data sources:
+* **[Yr.no](https://www.yr.no/)** - Webscraping
+* **[Vejr.eu](https://vejr.eu/pages/api-documentation)** - Weather API
